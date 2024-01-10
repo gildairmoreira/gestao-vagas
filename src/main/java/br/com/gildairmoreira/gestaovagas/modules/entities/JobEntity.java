@@ -29,10 +29,11 @@ public class JobEntity {
     @ManyToOne()
     @JoinColumn(name = "company_id")
     private CompanyEntity companyEntity;
-
-    @Column(name = "company_id")
-    private UUID companyId;
     
+    
+    // @Column(name = "company_id")
+    // private UUID companyId;
+
     @CreationTimestamp
     private LocalDateTime createdAt;
 }
