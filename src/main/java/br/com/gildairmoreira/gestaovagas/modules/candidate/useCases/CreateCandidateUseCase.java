@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.gildairmoreira.gestaovagas.exceptions.UserFoundExeption;
 import br.com.gildairmoreira.gestaovagas.modules.candidate.CandidateEntity;
-import br.com.gildairmoreira.gestaovagas.modules.candidate.controlllers.CandidateRepository;
+import br.com.gildairmoreira.gestaovagas.modules.candidate.CandidateRepository;
 
 @Service
 public class CreateCandidateUseCase {

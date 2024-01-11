@@ -1,4 +1,4 @@
-package br.com.gildairmoreira.gestaovagas.modules.candidate.controlllers;
+package br.com.gildairmoreira.gestaovagas.modules.candidate.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
 

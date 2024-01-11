@@ -1,4 +1,4 @@
-package br.com.gildairmoreira.gestaovagas.modules.entities;
+package br.com.gildairmoreira.gestaovagas.modules.company.entities;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
