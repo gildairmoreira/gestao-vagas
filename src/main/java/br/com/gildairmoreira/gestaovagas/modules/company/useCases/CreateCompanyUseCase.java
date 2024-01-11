@@ -20,7 +20,6 @@ public class CreateCompanyUseCase {
                     throw new UserFoundExeption();
                 });
         ;
-
         return this.companyRepository.save(companyEntity);
     }
 }
