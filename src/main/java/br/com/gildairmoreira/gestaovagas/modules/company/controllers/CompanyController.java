@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.gildairmoreira.gestaovagas.exceptions.UserFoundExeption;
 import br.com.gildairmoreira.gestaovagas.modules.company.entities.CompanyEntity;
 import br.com.gildairmoreira.gestaovagas.modules.company.useCases.CreateCompanyUseCase;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/company")
@@ -19,11 +20,12 @@ public class CompanyController {
     private CreateCompanyUseCase createCompanyUseCase;
 
     @PostMapping("/")
-    public ResponseEntity<Object> create(@RequestBody CompanyEntity companyEntity) {
+    public ResponseEntity<Object> create(@Valid @RequestBody CompanyEntity companyEntity) {
         try {
             var result = this.createCompanyUseCase.execute(companyEntity);
             return ResponseEntity.ok().body(result);
         } catch (UserFoundExeption e) {
+            e.printStackTrace();
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
