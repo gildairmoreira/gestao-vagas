@@ -10,8 +10,8 @@ import br.com.gildairmoreira.gestaovagas.modules.company.entities.JobEntity;
 import br.com.gildairmoreira.gestaovagas.modules.company.useCases.CreateJobUseCase;
 import jakarta.validation.Valid;
 
-@RequestMapping("/job")
 @RestController
+@RequestMapping("/job")
 public class JobController {
     
     @Autowired
