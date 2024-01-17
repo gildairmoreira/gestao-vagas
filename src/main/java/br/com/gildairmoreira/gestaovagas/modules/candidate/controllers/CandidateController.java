@@ -38,7 +38,6 @@ public class CandidateController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
-
     @GetMapping("/")
     public ResponseEntity<Object> get(HttpServletRequest request) {
 
