@@ -1,6 +1,6 @@
 package br.com.gildairmoreira.gestaovagas.modules.candidate.dto;
 
-import java.util.Date;
+import java.util.UUID;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,7 +11,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AuthCandidateResponseDTO {
-    private String access_token;
-    private Long expires_in;
+public class ProfileCandidateResponseDTO {
+    
+    private String description;
+    private String username;
+    private String email;
+    private UUID id;
+    private String name;
 }
