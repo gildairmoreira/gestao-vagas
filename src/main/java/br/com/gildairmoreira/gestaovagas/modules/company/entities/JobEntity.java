@@ -27,20 +27,18 @@ public class JobEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID Id;
-
+    private UUID id;
     private String description;
     private String benefits;
 
-    @NotBlank(message = "Esse Campo é Obrigatório")
+    @NotBlank(message = "Esse campo é obrigatório")
     private String level;
 
     @ManyToOne()
-    @JoinColumn(name = "company_id", insertable = false,updatable = false)
+    @JoinColumn(name = "company_id", insertable = false, updatable = false)
     private CompanyEntity companyEntity;
-    
-    
-    @Column(name = "company_id",nullable = false)
+
+    @Column(name = "company_id")
     private UUID companyId;
 
     @CreationTimestamp

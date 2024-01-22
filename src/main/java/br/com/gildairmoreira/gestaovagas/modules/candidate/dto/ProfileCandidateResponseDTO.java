@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProfileCandidateResponseDTO {
-    
+
     private String description;
     private String username;
     private String email;

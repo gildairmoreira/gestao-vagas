@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import br.com.gildairmoreira.gestaovagas.exceptions.UserFoundExeption;
+import br.com.gildairmoreira.gestaovagas.exceptions.UserFoundException;
 import br.com.gildairmoreira.gestaovagas.modules.company.entities.CompanyEntity;
 import br.com.gildairmoreira.gestaovagas.modules.company.repositories.CompanyRepository;
 
@@ -12,21 +12,23 @@ import br.com.gildairmoreira.gestaovagas.modules.company.repositories.CompanyRep
 public class CreateCompanyUseCase {
 
     @Autowired
-    private PasswordEncoder passwordEncoder;
-
-    @Autowired
     private CompanyRepository companyRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     public CompanyEntity execute(CompanyEntity companyEntity) {
+
         this.companyRepository
                 .findByUsernameOrEmail(companyEntity.getUsername(), companyEntity.getEmail())
                 .ifPresent((user) -> {
-                    throw new UserFoundExeption();
+                    throw new UserFoundException();
                 });
 
-                var password = passwordEncoder.encode(companyEntity.getPassword());
-                companyEntity.setPassword(password);
-        ;
+        var password = passwordEncoder.encode(companyEntity.getPassword());
+        companyEntity.setPassword(password);
+
         return this.companyRepository.save(companyEntity);
     }
+
 }

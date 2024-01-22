@@ -2,6 +2,7 @@ package br.com.gildairmoreira.gestaovagas.modules.company.useCases;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.Arrays;
 
 import javax.naming.AuthenticationException;
 
@@ -30,23 +31,24 @@ public class AuthCompanyUseCase {
     private PasswordEncoder passwordEncoder;
 
     public String execute(AuthCompanyDTO authCompanyDTO) throws AuthenticationException {
+        var company = this.companyRepository.findByUsername(authCompanyDTO.getUsername()).orElseThrow(
+                () -> {
+                    throw new UsernameNotFoundException("Username/password incorrect");
+                });
 
-        var company = this.companyRepository.findByUsername(authCompanyDTO.getUsername()).orElseThrow(() -> {
-            throw new UsernameNotFoundException("Username / Password incorrect");
-        });
-        // Verificar se a senha e igual
+        // Verificar a senha são iguais
         var passwordMatches = this.passwordEncoder.matches(authCompanyDTO.getPassword(), company.getPassword());
 
-        // se não for -> Erro
+        // Se não for igual -> Erro
         if (!passwordMatches) {
             throw new AuthenticationException();
         }
-        // se for igual -> Gerar Token
+        // Se for igual -> Gerar o token
         Algorithm algorithm = Algorithm.HMAC256(secretKey);
         var token = JWT.create().withIssuer("javagas")
-                .withExpiresAt(Instant.now().plus(Duration.ofHours(2)))
                 .withSubject(company.getId().toString())
                 .sign(algorithm);
         return token;
     }
+
 }

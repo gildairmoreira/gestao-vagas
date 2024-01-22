@@ -12,8 +12,7 @@ public class CreateJobUseCase {
     @Autowired
     private JobRepository jobRepository;
 
-
     public JobEntity execute(JobEntity jobEntity) {
-        return this.jobRepository.save(jobEntity);   
+        return this.jobRepository.save(jobEntity);
     }
 }

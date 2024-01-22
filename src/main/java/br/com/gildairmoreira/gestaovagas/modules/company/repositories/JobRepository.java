@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import br.com.gildairmoreira.gestaovagas.modules.company.entities.JobEntity;
 
-public interface JobRepository extends JpaRepository<JobEntity,UUID> {
-    
+public interface JobRepository extends JpaRepository<JobEntity, UUID> {
+
 }

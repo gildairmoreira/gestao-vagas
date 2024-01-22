@@ -28,6 +28,5 @@ public class JWTCandidateProvider {
             e.printStackTrace();
             return null;
         }
-
     }
 }
