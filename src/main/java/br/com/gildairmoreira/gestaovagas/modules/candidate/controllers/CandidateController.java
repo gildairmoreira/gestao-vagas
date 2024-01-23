@@ -70,7 +70,7 @@ public class CandidateController {
 
     @GetMapping("/job")
     @PreAuthorize("hasRole('CANDIDATE')")
-    @Tag(name = "Candidato", description = "Informações do candodato")
+    @Tag(name = "Candidato", description = "Informações do candidato")
     @Operation(summary = "Listagem de Vagas Disponíveis Para o Candidato", description = "Essa função é responsável por Listar todas as vagas diponíveis, baseada no filtro")
     @ApiResponses({
             @ApiResponse(responseCode = "200", content = {
