@@ -3,6 +3,7 @@ package br.com.gildairmoreira.gestaovagas.modules.candidate.controllers;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.gildairmoreira.gestaovagas.modules.candidate.CandidateEntity;
+import br.com.gildairmoreira.gestaovagas.modules.candidate.dto.ProfileCandidateResponseDTO;
 import br.com.gildairmoreira.gestaovagas.modules.candidate.useCases.CreateCandidateUseCase;
 import br.com.gildairmoreira.gestaovagas.modules.candidate.useCases.ListAllJobsByFilterUseCase;
 import br.com.gildairmoreira.gestaovagas.modules.candidate.useCases.ProfileCandidateUseCase;
@@ -56,6 +57,15 @@ public class CandidateController {
 
     @GetMapping("/")
     @PreAuthorize("hasRole('CANDIDATE')")
+    @Tag(name = "Candidato", description = "Informações do candidato")
+    @Operation(summary = "Perfil do Candidato", description = "Essa função é responsável por buscar as informaçoes do perfil do candodato")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", content = {
+                    @Content(schema =  @Schema(implementation = ProfileCandidateResponseDTO.class))
+            }),
+            @ApiResponse(responseCode = "400", description = "User not found")
+    })
+    @SecurityRequirement(name = "jwt_auth")
     public ResponseEntity<Object> get(HttpServletRequest request) {
 
         var idCandidate = request.getAttribute("candidate_id");
