@@ -34,6 +34,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/candidate")
+@Tag(name = "Candidato", description = "Informações do candidato")
 public class CandidateController {
 
     @Autowired
@@ -46,6 +47,13 @@ public class CandidateController {
     private ListAllJobsByFilterUseCase listAllJobsByFilterUseCase;
 
     @PostMapping("/")
+    @Operation(summary = "Cadastro de Candidato", description = "Essa função é responsável por cadastrar um candidato")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", content = {
+                    @Content(array = @ArraySchema(schema = @Schema(implementation = CandidateEntity.class)))
+            }),
+            @ApiResponse(responseCode = "400", description = "Usuário já existe")
+    })
     public ResponseEntity<Object> create(@Valid @RequestBody CandidateEntity createCandidateRequest) {
         try {
             var result = this.createCandidateUseCase.execute(createCandidateRequest);
@@ -57,11 +65,10 @@ public class CandidateController {
 
     @GetMapping("/")
     @PreAuthorize("hasRole('CANDIDATE')")
-    @Tag(name = "Candidato", description = "Informações do candidato")
-    @Operation(summary = "Perfil do Candidato", description = "Essa função é responsável por buscar as informaçoes do perfil do candodato")
+    @Operation(summary = "Perfil do Candidato", description = "Essa função é responsável por buscar as informaçoes do perfil do candidato")
     @ApiResponses({
             @ApiResponse(responseCode = "200", content = {
-                    @Content(schema =  @Schema(implementation = ProfileCandidateResponseDTO.class))
+                    @Content(schema = @Schema(implementation = ProfileCandidateResponseDTO.class))
             }),
             @ApiResponse(responseCode = "400", description = "User not found")
     })
@@ -80,7 +87,6 @@ public class CandidateController {
 
     @GetMapping("/job")
     @PreAuthorize("hasRole('CANDIDATE')")
-    @Tag(name = "Candidato", description = "Informações do candidato")
     @Operation(summary = "Listagem de Vagas Disponíveis Para o Candidato", description = "Essa função é responsável por Listar todas as vagas diponíveis, baseada no filtro")
     @ApiResponses({
             @ApiResponse(responseCode = "200", content = {
