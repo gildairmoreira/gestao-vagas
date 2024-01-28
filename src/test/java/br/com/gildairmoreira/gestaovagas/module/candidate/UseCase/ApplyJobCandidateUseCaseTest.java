@@ -76,7 +76,6 @@ public class ApplyJobCandidateUseCaseTest {
 
         var applyJobCreated = ApplyJobEntity.builder().id(UUID.randomUUID()).build();
 
-
         when(candidateRepository.findById(idCandidate)).thenReturn(Optional.of(new CandidateEntity()));
         when(jobRepository.findById(idJob)).thenReturn(Optional.of(new JobEntity()));
 
