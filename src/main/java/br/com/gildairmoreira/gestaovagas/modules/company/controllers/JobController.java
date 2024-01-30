@@ -13,7 +13,6 @@ import br.com.gildairmoreira.gestaovagas.modules.company.dto.CreateJobDTO;
 import br.com.gildairmoreira.gestaovagas.modules.company.entities.JobEntity;
 import br.com.gildairmoreira.gestaovagas.modules.company.useCases.CreateJobUseCase;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
