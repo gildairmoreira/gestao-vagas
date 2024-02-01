@@ -34,7 +34,6 @@ public class CreateJobControllerTest {
 
     @Test
     public void should_be_able_to_create_a_new_job() throws Exception {
-
         var createdJobDTO = CreateJobDTO.builder()
                 .benefits("BENEFITS_TEST")
                 .description("DESCRIPTION_TEST")
