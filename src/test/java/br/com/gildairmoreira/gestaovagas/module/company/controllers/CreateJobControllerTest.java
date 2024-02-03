@@ -47,7 +47,4 @@ public class CreateJobControllerTest {
 
         System.out.println(result);
     }
-
-    
-    
 }
