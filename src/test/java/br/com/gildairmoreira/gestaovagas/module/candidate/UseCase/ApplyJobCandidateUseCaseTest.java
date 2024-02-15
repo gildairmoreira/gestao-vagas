@@ -2,6 +2,7 @@ package br.com.gildairmoreira.gestaovagas.module.candidate.UseCase;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 import java.util.Optional;
@@ -13,6 +14,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import br.com.gildairmoreira.gestaovagas.exceptions.JobNotFoundException;
 import br.com.gildairmoreira.gestaovagas.exceptions.UserNotFoundException;
@@ -51,8 +53,8 @@ public class ApplyJobCandidateUseCaseTest {
 
     @Test
     public void should_not_be_able_to_apply_job_with_job_not_found() {
-
         var idCandidate = UUID.randomUUID();
+
         var candidate = new CandidateEntity();
         candidate.setId(idCandidate);
 
@@ -86,4 +88,5 @@ public class ApplyJobCandidateUseCaseTest {
         assertThat(result).hasFieldOrProperty("id");
         assertNotNull(result.getId());
     }
+
 }
