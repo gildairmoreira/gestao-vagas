@@ -3,6 +3,7 @@ package br.com.gildairmoreira.gestaovagas.modules.company.entities;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import org.hibernate.annotations.CollectionId;
 import org.hibernate.annotations.CreationTimestamp;
 
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -17,6 +18,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity(name = "job")
@@ -30,10 +32,10 @@ public class JobEntity {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Schema(example = "Vaga para UX UI")
+    @Schema(example = "Vaga para design")
     private String description;
 
-    @Schema(example = "Gym Pass, Plano de Saúde")
+    @Schema(example = "GYMPass, Plano de Saúde")
     private String benefits;
 
     @NotBlank(message = "Esse campo é obrigatório")

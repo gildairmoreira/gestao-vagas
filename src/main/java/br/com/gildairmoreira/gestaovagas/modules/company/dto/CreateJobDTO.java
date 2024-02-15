@@ -13,12 +13,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CreateJobDTO {
 
-    @Schema(example = "Vaga para Pessoa desenvolvedora Júnior", requiredMode = RequiredMode.REQUIRED)
+    @Schema(example = "Vaga para pessoa desenvolvedora júnior", requiredMode = RequiredMode.REQUIRED)
     private String description;
 
-    @Schema(example = "Gym Pass, Plano de Saúde", requiredMode = RequiredMode.REQUIRED)
+    @Schema(example = "GYMPass, Plano de saúde", requiredMode = RequiredMode.REQUIRED)
     private String benefits;
-
     @Schema(example = "JUNIOR", requiredMode = RequiredMode.REQUIRED)
     private String level;
 }

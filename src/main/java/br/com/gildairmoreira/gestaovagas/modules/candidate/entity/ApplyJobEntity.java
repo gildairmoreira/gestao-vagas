@@ -33,11 +33,11 @@ public class ApplyJobEntity {
     @ManyToOne
     @JoinColumn(name = "candidate_id", insertable = false, updatable = false)
     private CandidateEntity candidateEntity;
-    
+
     @ManyToOne
     @JoinColumn(name = "job_id", insertable = false, updatable = false)
     private JobEntity jobEntity;
-    
+
     @Column(name = "candidate_id")
     private UUID candidateId;
 

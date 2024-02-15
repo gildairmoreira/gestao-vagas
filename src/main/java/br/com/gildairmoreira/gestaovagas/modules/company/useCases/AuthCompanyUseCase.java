@@ -2,7 +2,11 @@ package br.com.gildairmoreira.gestaovagas.modules.company.useCases;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Arrays;
+import java.util.Date;
 
 import javax.naming.AuthenticationException;
 
@@ -16,6 +20,7 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 
 import br.com.gildairmoreira.gestaovagas.modules.company.dto.AuthCompanyDTO;
+import br.com.gildairmoreira.gestaovagas.modules.company.dto.AuthCompanyResponseDTO;
 import br.com.gildairmoreira.gestaovagas.modules.company.repositories.CompanyRepository;
 
 @Service
@@ -30,7 +35,7 @@ public class AuthCompanyUseCase {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public String execute(AuthCompanyDTO authCompanyDTO) throws AuthenticationException {
+    public AuthCompanyResponseDTO execute(AuthCompanyDTO authCompanyDTO) throws AuthenticationException {
         var company = this.companyRepository.findByUsername(authCompanyDTO.getUsername()).orElseThrow(
                 () -> {
                     throw new UsernameNotFoundException("Username/password incorrect");
@@ -53,7 +58,13 @@ public class AuthCompanyUseCase {
                 .withExpiresAt(expiresIn)
                 .withClaim("roles", Arrays.asList("COMPANY"))
                 .sign(algorithm);
-        return token;
+
+        var authCompanyResponseDTO = AuthCompanyResponseDTO.builder()
+                .access_token(token)
+                .expires_in(expiresIn.toEpochMilli())
+                .build();
+
+        return authCompanyResponseDTO;
     }
 
 }

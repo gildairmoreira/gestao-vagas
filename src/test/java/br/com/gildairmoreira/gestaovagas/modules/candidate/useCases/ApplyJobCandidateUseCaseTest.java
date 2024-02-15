@@ -1,4 +1,4 @@
-package br.com.gildairmoreira.gestaovagas.module.candidate.UseCase;
+package br.com.gildairmoreira.gestaovagas.modules.candidate.useCases;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -22,7 +22,6 @@ import br.com.gildairmoreira.gestaovagas.modules.candidate.CandidateEntity;
 import br.com.gildairmoreira.gestaovagas.modules.candidate.CandidateRepository;
 import br.com.gildairmoreira.gestaovagas.modules.candidate.entity.ApplyJobEntity;
 import br.com.gildairmoreira.gestaovagas.modules.candidate.repository.ApplyJobRepository;
-import br.com.gildairmoreira.gestaovagas.modules.candidate.useCases.ApplyJobCandidateUseCase;
 import br.com.gildairmoreira.gestaovagas.modules.company.entities.JobEntity;
 import br.com.gildairmoreira.gestaovagas.modules.company.repositories.JobRepository;
 

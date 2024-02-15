@@ -1,4 +1,4 @@
-package br.com.gildairmoreira.gestaovagas.module.company.controllers;
+package br.com.gildairmoreira.gestaovagas.modules.company.controllers;
 
 import java.util.UUID;
 

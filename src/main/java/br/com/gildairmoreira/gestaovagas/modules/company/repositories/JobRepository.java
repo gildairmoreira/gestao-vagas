@@ -11,7 +11,8 @@ public interface JobRepository extends JpaRepository<JobEntity, UUID> {
 
     // "contains - LIKE "
 
-    // Select * from job where descriptions like %filter%
+    // Select * from job where description like %filter%
 
     List<JobEntity> findByDescriptionContainingIgnoreCase(String filter);
+
 }

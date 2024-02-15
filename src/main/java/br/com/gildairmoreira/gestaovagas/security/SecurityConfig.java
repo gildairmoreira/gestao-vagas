@@ -21,9 +21,9 @@ public class SecurityConfig {
     private SecurityCandidateFilter securityCandidateFilter;
 
     private static final String[] SWAGGER_LIST = {
-        "/swagger-ui/**",
-        "/v3/api-docs/**",
-        "/swagger-resources/**"
+            "/swagger-ui/**",
+            "/v3/api-docs/**",
+            "/swagger-resources/**"
     };
 
     @Bean

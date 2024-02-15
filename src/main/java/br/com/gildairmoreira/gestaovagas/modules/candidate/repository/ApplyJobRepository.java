@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import br.com.gildairmoreira.gestaovagas.modules.candidate.entity.ApplyJobEntity;
 
 public interface ApplyJobRepository extends JpaRepository<ApplyJobEntity, UUID> {
-    
+
 }
