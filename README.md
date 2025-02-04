@@ -1,5 +1,3 @@
-# gestao-vagas
- 
 <p align="center">
   <img align="center" alt="Java" height="40" src="https://github.com/alanfsales/assets/blob/main/Java.png">
 </p>
