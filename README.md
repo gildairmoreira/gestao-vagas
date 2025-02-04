@@ -61,5 +61,3 @@ curl --location --request POST 'http://localhost:8080/candidate/' \
     "description": "Desenvolvedora Java Junior em busca da primeira oportunidade."
 }'
 ```
-
-![imagem](https://github.com/alanfsales/assets/blob/main/DesafioOne/conversor-de-moedas.png)
